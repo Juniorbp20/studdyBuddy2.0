@@ -1,0 +1,179 @@
+<resources>
+    <string name="app_name">Study Buddy</string>
+
+    <!-- General -->
+    <string name="action_add_task">Add new task</string>
+    <string name="action_delete_task">Delete task</string>
+    <string name="action_edit_task">Edit task</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <!-- Main -->
+    <string name="main_title">Study Buddy</string>
+    <string name="search_hint">Search tasks...</string>
+    <string name="filter_all_categories">All</string>
+    <string name="filter_all_priorities">Any priority</string>
+    <string name="filter_high">High</string>
+    <string name="filter_medium">Medium</string>
+    <string name="filter_low">Low</string>
+    <string name="empty_title">No tasks yet</string>
+    <string name="empty_subtitle">Tap the + button to create your first task</string>
+    <string name="no_results">No results for this filter</string>
+    <string name="task_deleted">Task deleted</string>
+    <string name="undo">Undo</string>
+    <string name="notification_permission_denied">Notification permission denied</string>
+    <string name="exact_alarm_snackbar">Enable exact alarms for precise reminders</string>
+    <string name="exact_alarm_action">Settings</string>
+
+    <!-- Menu -->
+    <string name="menu_statistics">Statistics</string>
+    <string name="menu_export">Export tasks</string>
+    <string name="menu_import">Import tasks</string>
+    <string name="menu_export_csv">Export to CSV</string>
+    <string name="menu_calendar">Calendar</string>
+    <string name="menu_focus">Focus mode</string>
+    <string name="menu_theme">Theme</string>
+    <string name="menu_theme_system">System</string>
+    <string name="menu_theme_light">Light</string>
+    <string name="menu_theme_dark">Dark</string>
+
+    <!-- Updates -->
+    <string name="menu_check_update">Check for updates</string>
+    <string name="update_checking_title">Checking for updates</string>
+    <string name="update_checking">Checking the latest available version…</string>
+    <string name="update_check_error">Could not check for the latest version</string>
+    <string name="update_latest">You already have the latest version</string>
+    <string name="update_available_title">New version available</string>
+    <string name="update_available_message">Version %1$s is available (you have %2$s). Download and install?</string>
+    <string name="update_download">Download</string>
+    <string name="update_downloading">Downloading update…</string>
+    <string name="update_download_error">Could not download the update</string>
+    <string name="update_install_permission_title">Install unknown apps</string>
+    <string name="update_install_permission_message">To install the update, allow Study Buddy to install applications.</string>
+    <string name="update_install_permission_action">Open settings</string>
+    <string name="menu_about">About</string>
+    <string name="about_message">Study Buddy %1$s\nTask, habit and pomodoro manager.\nhttps://github.com/Juniorbp20/StudyBuddy</string>
+    <string name="ok">OK</string>
+
+    <!-- Add/Edit task -->
+    <string name="add_task_title">Add Task</string>
+    <string name="edit_task_title">Edit Task</string>
+    <string name="task_title_hint">Title</string>
+    <string name="task_description_hint">Description</string>
+    <string name="task_title_required">Title is required</string>
+    <string name="date_time_label">Date and time</string>
+    <string name="select_date">Select Date</string>
+    <string name="change_date">Change date</string>
+    <string name="change_time">Change time</string>
+    <string name="time_label">Selected time</string>
+    <string name="select_time">Select Time</string>
+    <string name="category_label">Category</string>
+    <string name="priority_label">Priority</string>
+    <string name="reminder_switch">Reminder notification</string>
+    <string name="repeat_label">Repeat</string>
+    <string name="repeat_none">No repeat</string>
+    <string name="repeat_daily">Daily</string>
+    <string name="repeat_weekly">Weekly</string>
+    <string name="tags_label">Tags</string>
+    <string name="tags_hint">Tags separated by commas</string>
+    <string name="save_task">Save Task</string>
+    <string name="update_task">Update Task</string>
+    <string name="task_saved">Task saved</string>
+    <string name="task_updated">Task updated</string>
+    <string name="select_date_time_warning">Please select a valid date and time</string>
+    <string name="past_date_warning">The selected date has passed. Save anyway?</string>
+    <string name="yes">Yes</string>
+    <string name="delete">Delete</string>
+
+    <!-- Categories -->
+    <string name="category_general">General</string>
+    <string name="category_study">Study</string>
+    <string name="category_work">Work</string>
+    <string name="category_personal">Personal</string>
+    <string name="new_category">New category</string>
+    <string name="category_name_hint">Category name</string>
+    <string name="category_name_required">Enter the category name</string>
+    <string name="category_icon_label">Choose an icon</string>
+    <string name="delete_category_title">Delete category</string>
+    <string name="delete_category_message">The category "%1$s" will be deleted and its tasks will move to "General". Continue?</string>
+
+    <!-- Detail -->
+    <string name="detail_title">Task details</string>
+    <string name="mark_completed">Mark as completed</string>
+    <string name="no_description">No description</string>
+    <string name="no_tags">No tags</string>
+    <string name="reminder_on">Reminder enabled</string>
+    <string name="reminder_off">No reminder</string>
+    <string name="subtasks_label">Subtasks</string>
+    <string name="subtask_hint">New subtask</string>
+    <string name="subtask_add">Add</string>
+    <string name="subtask_required">Enter the subtask title</string>
+    <string name="empty_subtasks">No subtasks</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">Statistics</string>
+    <string name="progress_label">Completion progress</string>
+    <string name="summary_label">Summary</string>
+    <string name="stat_total">Total</string>
+    <string name="stat_completed">Completed</string>
+    <string name="stat_pending">Pending</string>
+    <string name="stat_overdue">Overdue</string>
+    <string name="stat_today">Today</string>
+    <string name="stat_week">Last week</string>
+    <string name="stat_sessions">Focus sessions</string>
+    <string name="chart_title">Tasks completed per day (last 7 days)</string>
+
+    <!-- Calendar -->
+    <string name="calendar_title">Calendar</string>
+    <string name="prev_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="no_tasks_day">No tasks this day</string>
+
+    <!-- Focus -->
+    <string name="focus_title">Focus mode</string>
+    <string name="focus_mode">Focus</string>
+    <string name="break_mode">Break</string>
+    <string name="focus_start">Start</string>
+    <string name="focus_pause">Pause</string>
+    <string name="focus_resume">Resume</string>
+    <string name="focus_reset">Reset</string>
+    <string name="focus_sessions_label">Sessions today: %1$d · Total: %2$d</string>
+    <string name="focus_completed_toast">Session completed! Take a break</string>
+    <string name="focus_break_toast">Break over. Focus time!</string>
+    <string name="focus_time_hint">Tap the time to set it</string>
+    <string name="focus_work_duration_title">Focus duration (minutes)</string>
+    <string name="focus_break_duration_title">Break duration (minutes)</string>
+    <string name="focus_pause_to_change">Pause the timer to change the time</string>
+
+    <!-- Export/Import -->
+    <string name="export_success">Exported %1$d tasks</string>
+    <string name="export_error">Export failed</string>
+    <string name="import_success">Imported %1$d tasks</string>
+    <string name="import_error">Invalid file</string>
+
+    <!-- Widget -->
+    <string name="widget_title">Today\'s tasks</string>
+    <string name="widget_empty">No tasks for today</string>
+
+    <!-- Notifications -->
+    <string name="notification_reminder_title">Task Reminder</string>
+    <string name="notification_reminder_body">You have a pending task: %1$s%2$s</string>
+    <string name="notification_overdue_title">You have %1$d overdue tasks</string>
+    <string name="notification_overdue_body">Tap to see your pending tasks</string>
+    <string name="notification_task">Task</string>
+    <string name="notification_channel_reminders">Task reminders</string>
+    <string name="notification_channel_reminders_desc">Task reminder notifications</string>
+    <string name="notification_channel_overdue">Overdue tasks</string>
+    <string name="notification_channel_overdue_desc">Daily summary of overdue tasks</string>
+
+    <!-- Calendar -->
+    <string-array name="day_names_short">
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+        <item>S</item>
+    </string-array>
+</resources>

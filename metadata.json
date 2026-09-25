@@ -1,0 +1,8 @@
+{
+  "name": "Compañero de Estudios",
+  "description": "Gestor de tareas, hábitos y pomodoro para estudiantes y profesionales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

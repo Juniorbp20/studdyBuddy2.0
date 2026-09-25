@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.StudyBuddy" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#D0BCFF</item>
+        <item name="colorOnPrimary">#381E72</item>
+        <item name="colorPrimaryContainer">#4F378B</item>
+        <item name="colorOnPrimaryContainer">#EADDFF</item>
+        <item name="colorSecondary">#CCC2DC</item>
+        <item name="colorOnSecondary">#332D41</item>
+        <item name="android:colorBackground">#1C1B1F</item>
+        <item name="colorOnBackground">#E6E1E5</item>
+        <item name="colorSurface">#1C1B1F</item>
+        <item name="colorOnSurface">#E6E1E5</item>
+        <item name="colorSurfaceVariant">#49454F</item>
+        <item name="colorOnSurfaceVariant">#CAC4D0</item>
+        <item name="colorOutline">#938F99</item>
+        <item name="colorError">#F2B8B5</item>
+        <item name="colorOnError">#601410</item>
+        <item name="android:statusBarColor">#1C1B1F</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.StudyBuddy.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#1C1B1F</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.StudyBuddy</item>
+    </style>
+</resources>

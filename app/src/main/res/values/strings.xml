@@ -1,0 +1,179 @@
+<resources>
+    <string name="app_name">Compañero de Estudios</string>
+
+    <!-- General -->
+    <string name="action_add_task">Agregar nueva tarea</string>
+    <string name="action_delete_task">Eliminar tarea</string>
+    <string name="action_edit_task">Editar tarea</string>
+    <string name="cancel">Cancelar</string>
+    <string name="save">Guardar</string>
+
+    <!-- Main -->
+    <string name="main_title">Compañero de Estudios</string>
+    <string name="search_hint">Buscar tareas...</string>
+    <string name="filter_all_categories">Todas</string>
+    <string name="filter_all_priorities">Toda prioridad</string>
+    <string name="filter_high">Alta</string>
+    <string name="filter_medium">Media</string>
+    <string name="filter_low">Baja</string>
+    <string name="empty_title">No hay tareas todavía</string>
+    <string name="empty_subtitle">Pulsa el botón + para crear tu primera tarea</string>
+    <string name="no_results">No hay resultados para el filtro</string>
+    <string name="task_deleted">Tarea eliminada</string>
+    <string name="undo">Deshacer</string>
+    <string name="notification_permission_denied">Permiso de notificaciones denegado</string>
+    <string name="exact_alarm_snackbar">Activa las alarmas exactas para recordatorios precisos</string>
+    <string name="exact_alarm_action">Configurar</string>
+
+    <!-- Menú -->
+    <string name="menu_statistics">Estadísticas</string>
+    <string name="menu_export">Exportar tareas</string>
+    <string name="menu_import">Importar tareas</string>
+    <string name="menu_export_csv">Exportar a CSV</string>
+    <string name="menu_calendar">Calendario</string>
+    <string name="menu_focus">Modo enfoque</string>
+    <string name="menu_theme">Tema</string>
+    <string name="menu_theme_system">Sistema</string>
+    <string name="menu_theme_light">Claro</string>
+    <string name="menu_theme_dark">Oscuro</string>
+
+    <!-- Actualizaciones -->
+    <string name="menu_check_update">Buscar actualizaciones</string>
+    <string name="update_checking_title">Buscando actualizaciones</string>
+    <string name="update_checking">Comprobando la última versión disponible…</string>
+    <string name="update_check_error">No se pudo comprobar la última versión</string>
+    <string name="update_latest">Ya tienes la última versión</string>
+    <string name="update_available_title">Nueva versión disponible</string>
+    <string name="update_available_message">Hay disponible la versión %1$s (tienes la %2$s). ¿Descargar e instalar?</string>
+    <string name="update_download">Descargar</string>
+    <string name="update_downloading">Descargando actualización…</string>
+    <string name="update_download_error">No se pudo descargar la actualización</string>
+    <string name="update_install_permission_title">Instalar desde orígenes desconocidos</string>
+    <string name="update_install_permission_message">Para instalar la actualización, permite a Compañero de Estudios instalar aplicaciones.</string>
+    <string name="update_install_permission_action">Abrir ajustes</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="about_message">Compañero de Estudios %1$s\nGestor de tareas, hábitos y pomodoro.\nhttps://github.com/Juniorbp20/StudyBuddy</string>
+    <string name="ok">OK</string>
+
+    <!-- Add/Edit task -->
+    <string name="add_task_title">Agregar Tarea</string>
+    <string name="edit_task_title">Editar Tarea</string>
+    <string name="task_title_hint">Título</string>
+    <string name="task_description_hint">Descripción</string>
+    <string name="task_title_required">El título es obligatorio</string>
+    <string name="date_time_label">Fecha y hora</string>
+    <string name="select_date">Seleccionar Fecha</string>
+    <string name="change_date">Cambiar fecha</string>
+    <string name="change_time">Cambiar hora</string>
+    <string name="time_label">Hora seleccionada</string>
+    <string name="select_time">Seleccionar Hora</string>
+    <string name="category_label">Categoría</string>
+    <string name="priority_label">Prioridad</string>
+    <string name="reminder_switch">Recordatorio con notificación</string>
+    <string name="repeat_label">Repetir</string>
+    <string name="repeat_none">No repetir</string>
+    <string name="repeat_daily">Diario</string>
+    <string name="repeat_weekly">Semanal</string>
+    <string name="tags_label">Etiquetas</string>
+    <string name="tags_hint">Etiquetas separadas por coma</string>
+    <string name="save_task">Guardar Tarea</string>
+    <string name="update_task">Actualizar Tarea</string>
+    <string name="task_saved">Tarea guardada</string>
+    <string name="task_updated">Tarea actualizada</string>
+    <string name="select_date_time_warning">Selecciona una fecha y hora válidas</string>
+    <string name="past_date_warning">La fecha seleccionada ya pasó. ¿Guardar de todos modos?</string>
+    <string name="yes">Sí</string>
+    <string name="delete">Eliminar</string>
+
+    <!-- Categorías -->
+    <string name="category_general">General</string>
+    <string name="category_study">Estudio</string>
+    <string name="category_work">Trabajo</string>
+    <string name="category_personal">Personal</string>
+    <string name="new_category">Nueva categoría</string>
+    <string name="category_name_hint">Nombre de la categoría</string>
+    <string name="category_name_required">Escribe el nombre de la categoría</string>
+    <string name="category_icon_label">Elige un icono</string>
+    <string name="delete_category_title">Eliminar categoría</string>
+    <string name="delete_category_message">Se eliminará la categoría "%1$s" y sus tareas pasarán a "General". ¿Continuar?</string>
+
+    <!-- Detalle -->
+    <string name="detail_title">Detalle de la tarea</string>
+    <string name="mark_completed">Marcar como completada</string>
+    <string name="no_description">Sin descripción</string>
+    <string name="no_tags">Sin etiquetas</string>
+    <string name="reminder_on">Recordatorio activado</string>
+    <string name="reminder_off">Sin recordatorio</string>
+    <string name="subtasks_label">Subtareas</string>
+    <string name="subtask_hint">Nueva subtarea</string>
+    <string name="subtask_add">Añadir</string>
+    <string name="subtask_required">Escribe el título de la subtarea</string>
+    <string name="empty_subtasks">Sin subtareas</string>
+
+    <!-- Estadísticas -->
+    <string name="statistics_title">Estadísticas</string>
+    <string name="progress_label">Progreso de completado</string>
+    <string name="summary_label">Resumen</string>
+    <string name="stat_total">Total</string>
+    <string name="stat_completed">Completadas</string>
+    <string name="stat_pending">Pendientes</string>
+    <string name="stat_overdue">Vencidas</string>
+    <string name="stat_today">Hoy</string>
+    <string name="stat_week">Última semana</string>
+    <string name="stat_sessions">Sesiones de enfoque</string>
+    <string name="chart_title">Tareas completadas por día (últimos 7 días)</string>
+
+    <!-- Calendario -->
+    <string name="calendar_title">Calendario</string>
+    <string name="prev_month">Mes anterior</string>
+    <string name="next_month">Mes siguiente</string>
+    <string name="no_tasks_day">Sin tareas este día</string>
+
+    <!-- Enfoque -->
+    <string name="focus_title">Modo enfoque</string>
+    <string name="focus_mode">Enfoque</string>
+    <string name="break_mode">Descanso</string>
+    <string name="focus_start">Comenzar</string>
+    <string name="focus_pause">Pausar</string>
+    <string name="focus_resume">Continuar</string>
+    <string name="focus_reset">Reiniciar</string>
+    <string name="focus_sessions_label">Sesiones hoy: %1$d · Total: %2$d</string>
+    <string name="focus_completed_toast">¡Sesión completada! Tómate un descanso</string>
+    <string name="focus_break_toast">Descanso terminado. ¡A concentrarse!</string>
+    <string name="focus_time_hint">Toca el tiempo para configurarlo</string>
+    <string name="focus_work_duration_title">Duración de Enfoque (minutos)</string>
+    <string name="focus_break_duration_title">Duración de Descanso (minutos)</string>
+    <string name="focus_pause_to_change">Pausa el temporizador para cambiar el tiempo</string>
+
+    <!-- Export/Import -->
+    <string name="export_success">Tareas exportadas (%1$d)</string>
+    <string name="export_error">Error al exportar</string>
+    <string name="import_success">Importadas %1$d tareas</string>
+    <string name="import_error">Archivo inválido</string>
+
+    <!-- Widget -->
+    <string name="widget_title">Tareas de hoy</string>
+    <string name="widget_empty">Sin tareas para hoy</string>
+
+    <!-- Notificaciones -->
+    <string name="notification_reminder_title">Recordatorio de Tarea</string>
+    <string name="notification_reminder_body">Tienes una tarea pendiente: %1$s%2$s</string>
+    <string name="notification_overdue_title">Tienes %1$d tareas vencidas</string>
+    <string name="notification_overdue_body">Toca para ver tus tareas pendientes</string>
+    <string name="notification_task">Tarea</string>
+    <string name="notification_channel_reminders">Recordatorios de tareas</string>
+    <string name="notification_channel_reminders_desc">Notificaciones de recordatorio de tareas</string>
+    <string name="notification_channel_overdue">Tareas vencidas</string>
+    <string name="notification_channel_overdue_desc">Resumen diario de tareas vencidas</string>
+
+    <!-- Calendario -->
+    <string-array name="day_names_short">
+        <item>L</item>
+        <item>M</item>
+        <item>X</item>
+        <item>J</item>
+        <item>V</item>
+        <item>S</item>
+        <item>D</item>
+    </string-array>
+</resources>

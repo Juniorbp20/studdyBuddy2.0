@@ -1,0 +1,47 @@
+name: Android CD
+
+on:
+  push:
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Gradle cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-cd-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: gradle-cd-${{ runner.os }}
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Unit tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Lint
+        run: ./gradlew lintDebug --no-daemon
+
+      - name: Build release APK
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/release/app-release.apk
+          generate_release_notes: true
