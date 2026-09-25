@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.ViewModelProvider
 import com.example.studybuddy.databinding.ActivityAddTaskBinding
 import com.example.studybuddy.model.CategoryEntity
@@ -63,6 +64,23 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun setupCategoryChips() {
+        val density = resources.displayMetrics.density
+
+        fun styleBuiltInChip(chip: Chip, iconRes: Int, color: Int) {
+            chip.chipIcon = ContextCompat.getDrawable(this, iconRes)
+            chip.chipIconTint = ColorStateList.valueOf(color)
+            chip.chipStrokeColor = ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+                intArrayOf(color, ColorUtils.setAlphaComponent(color, 110))
+            )
+            chip.chipStrokeWidth = density * 1.5f
+        }
+
+        styleBuiltInChip(binding.chipCategoryGeneral, R.drawable.ic_cat_star, 0xFF607D8B.toInt())
+        styleBuiltInChip(binding.chipCategoryStudy, R.drawable.ic_cat_book, 0xFF3F51B5.toInt())
+        styleBuiltInChip(binding.chipCategoryWork, R.drawable.ic_cat_briefcase, 0xFFF57C00.toInt())
+        styleBuiltInChip(binding.chipCategoryPersonal, R.drawable.ic_cat_home, 0xFF00897B.toInt())
+
         binding.chipCategoryGeneral.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) selectedCategory = CategoryEntity.ID_GENERAL
         }
@@ -82,6 +100,7 @@ class AddTaskActivity : AppCompatActivity() {
     }
 
     private fun renderCategoryChips(categories: List<CategoryEntity>) {
+        val density = resources.displayMetrics.density
         val existing = mutableMapOf<Int, Chip>()
         for (i in 0 until binding.chipGroupCategory.childCount) {
             val chip = binding.chipGroupCategory.getChildAt(i) as? Chip ?: continue
@@ -99,6 +118,11 @@ class AddTaskActivity : AppCompatActivity() {
                     text = category.displayName(this@AddTaskActivity)
                     chipIcon = ContextCompat.getDrawable(this@AddTaskActivity, iconRes)
                     chipIconTint = ColorStateList.valueOf(category.color)
+                    chipStrokeColor = ColorStateList(
+                        arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+                        intArrayOf(category.color, ColorUtils.setAlphaComponent(category.color, 110))
+                    )
+                    chipStrokeWidth = density * 1.5f
                     isCheckable = true
                     setOnCheckedChangeListener { _, isChecked ->
                         if (isChecked) selectedCategory = category.id
@@ -124,6 +148,7 @@ class AddTaskActivity : AppCompatActivity() {
         ) as View
         val nameInput = dialogView.findViewById<EditText>(R.id.edit_text_category_name)
         val iconGroup = dialogView.findViewById<ChipGroup>(R.id.chip_group_category_icon)
+        val colorGroup = dialogView.findViewById<ChipGroup>(R.id.chip_group_category_color)
 
         CategoryEntity.ICON_KEYS.forEachIndexed { index, iconKey ->
             val iconRes = iconKey.categoryIconRes() ?: return@forEachIndexed
@@ -140,6 +165,27 @@ class AddTaskActivity : AppCompatActivity() {
             iconGroup.addView(chip)
         }
 
+        var selectedColor = CategoryEntity.CUSTOM_COLORS[0]
+        CategoryEntity.CUSTOM_COLORS.forEachIndexed { index, colorValue ->
+            val chip = Chip(this).apply {
+                text = " "
+                chipIcon = ContextCompat.getDrawable(this@AddTaskActivity, R.drawable.ic_circle)
+                chipIconTint = ColorStateList.valueOf(colorValue)
+                isCheckable = true
+                isChecked = index == 0
+                chipStrokeColor = ColorStateList(
+                    arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+                    intArrayOf(colorValue, ColorUtils.setAlphaComponent(colorValue, 90))
+                )
+                chipStrokeWidth = resources.displayMetrics.density * 2f
+                setOnCheckedChangeListener { _, isChecked ->
+                    if (isChecked) selectedColor = colorValue
+                }
+            }
+            chip.tag = colorValue
+            colorGroup.addView(chip)
+        }
+
         MaterialAlertDialogBuilder(this)
             .setTitle(R.string.new_category)
             .setView(dialogView)
@@ -152,11 +198,11 @@ class AddTaskActivity : AppCompatActivity() {
                 val icon = (iconGroup.checkedChipId.let {
                     iconGroup.findViewById<Chip>(it)?.tag as? String
                 }) ?: CategoryEntity.DEFAULT_ICON
-                val customCount = (taskViewModel.categories.value ?: emptyList())
-                    .count { it.id !in CategoryEntity.ID_GENERAL..CategoryEntity.ID_PERSONAL }
-                val color = CategoryEntity.CUSTOM_COLORS[
-                    customCount % CategoryEntity.CUSTOM_COLORS.size
-                ]
+
+                val color = (colorGroup.checkedChipId.let {
+                    colorGroup.findViewById<Chip>(it)?.tag as? Int
+                }) ?: selectedColor
+
                 taskViewModel.upsertCategory(
                     CategoryEntity(name = name, icon = icon, color = color)
                 ) { id ->

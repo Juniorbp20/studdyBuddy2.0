@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-class TaskRepository(context: Context) {
+class TaskRepository(private val context: Context) {
 
     private val database: AppDatabase = AppDatabase.getInstance(context)
     private val taskDao: TaskDao = database.taskDao()
@@ -36,6 +36,8 @@ class TaskRepository(context: Context) {
     val totalCount: Flow<Int> = taskDao.getTotalCount()
     val completedCount: Flow<Int> = taskDao.getCompletedCount()
     val pendingCount: Flow<Int> = taskDao.getPendingCount()
+
+    fun upcomingTasks(limit: Int = 5): Flow<List<Task>> = taskDao.getUpcomingTasks(limit)
 
     fun overdueCount(now: Long): Flow<Int> = taskDao.getOverdueCount(now)
 
@@ -82,26 +84,34 @@ class TaskRepository(context: Context) {
     }
 
     suspend fun insert(task: Task): Long = withContext(Dispatchers.IO) {
-        taskDao.insert(task)
+        val id = taskDao.insert(task)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, id, "INSERT")
+        id
     }
 
     suspend fun update(task: Task) = withContext(Dispatchers.IO) {
         taskDao.update(task)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, task.id.toLong(), "UPDATE")
     }
 
     suspend fun delete(task: Task) = withContext(Dispatchers.IO) {
         taskDao.delete(task)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, task.id.toLong(), "DELETE")
     }
 
     suspend fun insertSubTask(subTask: SubTask): Long = withContext(Dispatchers.IO) {
-        subTaskDao.insert(subTask)
+        val id = subTaskDao.insert(subTask)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, subTask.taskId.toLong(), "SUBTASK_INSERT")
+        id
     }
 
     suspend fun updateSubTask(subTask: SubTask) = withContext(Dispatchers.IO) {
         subTaskDao.update(subTask)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, subTask.taskId.toLong(), "SUBTASK_UPDATE")
     }
 
     suspend fun deleteSubTask(subTask: SubTask) = withContext(Dispatchers.IO) {
         subTaskDao.delete(subTask)
+        com.example.studybuddy.util.SyncManager.getInstance(context).enqueueTaskAction(context, subTask.taskId.toLong(), "SUBTASK_DELETE")
     }
 }

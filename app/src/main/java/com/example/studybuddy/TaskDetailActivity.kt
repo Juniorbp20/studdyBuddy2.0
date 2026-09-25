@@ -118,14 +118,14 @@ class TaskDetailActivity : AppCompatActivity() {
     private fun renderCategory(task: com.example.studybuddy.model.Task) {
         val category = (taskViewModel.categories.value ?: emptyList())
             .firstOrNull { it.id == task.categoryId }
+        val color = category?.color ?: com.example.studybuddy.model.CategoryEntity.DEFAULT_COLOR
         binding.textCategory.text = category?.displayName(this)
             ?: getString(R.string.category_general)
+        binding.textCategory.setTextColor(color)
         binding.imageCategory.setImageResource(
             category?.icon?.categoryIconRes() ?: R.drawable.ic_cat_star
         )
-        binding.imageCategory.setColorFilter(
-            category?.color ?: com.example.studybuddy.model.CategoryEntity.DEFAULT_COLOR
-        )
+        binding.imageCategory.setColorFilter(color)
     }
 
     private fun addSubTask() {

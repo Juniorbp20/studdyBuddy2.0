@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Study Hours Trends</title>
+  <style>
+    :root {
+      --text-primary: #0F172A;
+      --text-secondary: #64748B;
+      --border-color: #E2E8F0;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --btn-active-bg: #4F46E5;
+      --btn-active-text: #FFFFFF;
+      --btn-inactive-bg: #F1F5F9;
+      --btn-inactive-text: #475569;
+      --grid-stroke: #E2E8F0;
+      --tooltip-bg: #FFFFFF;
+      --tooltip-border: #CBD5E1;
+      --tooltip-shadow: rgba(0, 0, 0, 0.1);
+      --accent: #4F46E5;
+      --accent-secondary: #0EA5E9;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #F8FAFC;
+        --text-secondary: #94A3B8;
+        --border-color: #334155;
+        --card-bg: rgba(30, 41, 59, 0.85);
+        --btn-active-bg: #6366F1;
+        --btn-active-text: #FFFFFF;
+        --btn-inactive-bg: #334155;
+        --btn-inactive-text: #CBD5E1;
+        --grid-stroke: #334155;
+        --tooltip-bg: #1E293B;
+        --tooltip-border: #475569;
+        --tooltip-shadow: rgba(0, 0, 0, 0.35);
+        --accent: #818CF8;
+        --accent-secondary: #38BDF8;
+      }
+    }
+
+    body.dark-mode {
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --border-color: #334155;
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --btn-active-bg: #6366F1;
+      --btn-active-text: #FFFFFF;
+      --btn-inactive-bg: #334155;
+      --btn-inactive-text: #CBD5E1;
+      --grid-stroke: #334155;
+      --tooltip-bg: #1E293B;
+      --tooltip-border: #475569;
+      --tooltip-shadow: rgba(0, 0, 0, 0.35);
+      --accent: #818CF8;
+      --accent-secondary: #38BDF8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      padding: 4px 8px 8px 8px;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .period-tabs {
+      display: inline-flex;
+      background: var(--btn-inactive-bg);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      color: var(--btn-inactive-text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tab-btn.active {
+      background: var(--btn-active-bg);
+      color: var(--btn-active-text);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    .summary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .chart-container {
+      width: 100%;
+      height: 200px;
+      position: relative;
+    }
+
+    .custom-tooltip {
+      background: var(--tooltip-bg);
+      border: 1px solid var(--tooltip-border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      box-shadow: 0 4px 12px var(--tooltip-shadow);
+      font-size: 12px;
+    }
+
+    .tooltip-date {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .tooltip-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      font-size: 11px;
+    }
+
+    .tooltip-hours {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stats-footer {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-color);
+      font-size: 11px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .stat-val {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+  </style>
+  <script src="react.min.js"></script>
+  <script src="prop-types.min.js"></script>
+  <script src="react-dom.min.js"></script>
+  <script src="Recharts.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    (function() {
+      const e = React.createElement;
+      const {
+        ResponsiveContainer,
+        AreaChart,
+        Area,
+        XAxis,
+        YAxis,
+        CartesianGrid,
+        Tooltip
+      } = window.Recharts || {};
+
+      // Fallback default sample data
+      const defaultDailyData = [
+        { label: "Sáb 19", fullDate: "19 Sep", hours: 1.5, minutes: 90, sessions: 3 },
+        { label: "Dom 20", fullDate: "20 Sep", hours: 2.0, minutes: 120, sessions: 4 },
+        { label: "Lun 21", fullDate: "21 Sep", hours: 3.2, minutes: 192, sessions: 7 },
+        { label: "Mar 22", fullDate: "22 Sep", hours: 2.5, minutes: 150, sessions: 5 },
+        { label: "Mié 23", fullDate: "23 Sep", hours: 4.0, minutes: 240, sessions: 8 },
+        { label: "Jue 24", fullDate: "24 Sep", hours: 3.0, minutes: 180, sessions: 6 },
+        { label: "Vie 25", fullDate: "Hoy", hours: 2.5, minutes: 150, sessions: 5 }
+      ];
+
+      const defaultWeeklyData = [
+        { label: "Sem 35", fullDate: "29 Ago - 04 Sep", hours: 14.5, minutes: 870, sessions: 29 },
+        { label: "Sem 36", fullDate: "05 Sep - 11 Sep", hours: 18.0, minutes: 1080, sessions: 36 },
+        { label: "Sem 37", fullDate: "12 Sep - 18 Sep", hours: 16.5, minutes: 990, sessions: 33 },
+        { label: "Sem 38", fullDate: "19 Sep - 25 Sep", hours: 18.7, minutes: 1122, sessions: 38 }
+      ];
+
+      function CustomTooltipContent({ active, payload }) {
+        if (!active || !payload || !payload.length) return null;
+        const item = payload[0].payload;
+        return e("div", { className: "custom-tooltip" },
+          e("div", { className: "tooltip-date" }, item.fullDate || item.label),
+          e("div", { className: "tooltip-hours" }, `${item.hours} hrs`),
+          e("div", { className: "tooltip-row" }, `${item.sessions} sesiones • ${item.minutes} min`)
+        );
+      }
+
+      function StudyHoursDashboard() {
+        const [period, setPeriod] = React.useState("daily");
+        const [dailyData, setDailyData] = React.useState(defaultDailyData);
+        const [weeklyData, setWeeklyData] = React.useState(defaultWeeklyData);
+        const [isDark, setIsDark] = React.useState(false);
+
+        React.useEffect(() => {
+          // Listen for Android updates
+          window.updateStudyData = function(jsonStr) {
+            try {
+              const data = typeof jsonStr === "string" ? JSON.parse(jsonStr) : jsonStr;
+              if (data.daily && Array.isArray(data.daily) && data.daily.length > 0) {
+                setDailyData(data.daily);
+              }
+              if (data.weekly && Array.isArray(data.weekly) && data.weekly.length > 0) {
+                setWeeklyData(data.weekly);
+              }
+              if (data.isDark !== undefined) {
+                setIsDark(!!data.isDark);
+                if (data.isDark) {
+                  document.body.classList.add("dark-mode");
+                } else {
+                  document.body.classList.remove("dark-mode");
+                }
+              }
+            } catch (err) {
+              console.error("Failed to parse study data", err);
+            }
+          };
+
+          // Check if dark mode is requested via URL or system
+          const params = new URLSearchParams(window.location.search);
+          if (params.get("dark") === "true") {
+            setIsDark(true);
+            document.body.classList.add("dark-mode");
+          }
+
+          if (window.AndroidBridge && window.AndroidBridge.onChartReady) {
+            window.AndroidBridge.onChartReady();
+          }
+        }, []);
+
+        const currentData = period === "daily" ? dailyData : weeklyData;
+        const totalHours = currentData.reduce((sum, d) => sum + (Number(d.hours) || 0), 0);
+        const avgHours = currentData.length > 0 ? (totalHours / currentData.length).toFixed(1) : 0;
+        const maxItem = currentData.reduce((max, d) => (d.hours > (max ? max.hours : 0) ? d : max), null);
+
+        const strokeColor = isDark ? "#818CF8" : "#4F46E5";
+        const gridColor = isDark ? "#334155" : "#E2E8F0";
+        const textColor = isDark ? "#94A3B8" : "#64748B";
+
+        if (!window.Recharts || !AreaChart) {
+          // Polished SVG fallback matching the exact Recharts styling
+          const maxVal = Math.max(...currentData.map(d => d.hours), 1);
+          const points = currentData.map((d, idx) => {
+            const x = 30 + (idx * (280 / (currentData.length - 1 || 1)));
+            const y = 160 - (d.hours / maxVal) * 130;
+            return { x, y, ...d };
+          });
+          const pathD = points.reduce((acc, p, idx) => `${acc} ${idx === 0 ? "M" : "L"} ${p.x} ${p.y}`, "");
+          const areaD = `${pathD} L ${points[points.length - 1].x} 160 L ${points[0].x} 160 Z`;
+
+          return e("div", null,
+            e("div", { className: "dashboard-header" },
+              e("div", { className: "period-tabs" },
+                e("button", {
+                  className: `tab-btn ${period === "daily" ? "active" : ""}`,
+                  onClick: () => setPeriod("daily")
+                }, "📅 Diario (7d)"),
+                e("button", {
+                  className: `tab-btn ${period === "weekly" ? "active" : ""}`,
+                  onClick: () => setPeriod("weekly")
+                }, "📈 Semanal (4s)")
+              ),
+              e("div", { className: "summary-badge" }, `Total: ${totalHours.toFixed(1)} hrs`)
+            ),
+            e("div", { className: "chart-container" },
+              e("svg", { width: "100%", height: "100%", viewBox: "0 0 320 180" },
+                e("defs", null,
+                  e("linearGradient", { id: "svgGradient", x1: "0", y1: "0", x2: "0", y2: "1" },
+                    e("stop", { offset: "5%", stopColor: strokeColor, stopOpacity: 0.6 }),
+                    e("stop", { offset: "95%", stopColor: strokeColor, stopOpacity: 0.05 })
+                  )
+                ),
+                e("line", { x1: 20, y1: 160, x2: 310, y2: 160, stroke: gridColor, strokeDasharray: "3 3" }),
+                e("line", { x1: 20, y1: 95, x2: 310, y2: 95, stroke: gridColor, strokeDasharray: "3 3" }),
+                e("line", { x1: 20, y1: 30, x2: 310, y2: 30, stroke: gridColor, strokeDasharray: "3 3" }),
+                e("path", { d: areaD, fill: "url(#svgGradient)" }),
+                e("path", { d: pathD, fill: "none", stroke: strokeColor, strokeWidth: 3 }),
+                points.map((p, idx) => e("g", { key: idx },
+                  e("circle", { cx: p.x, cy: p.y, r: 4, fill: "#FFFFFF", stroke: strokeColor, strokeWidth: 2 }),
+                  e("text", { x: p.x, y: 175, fill: textColor, fontSize: 10, textAnchor: "middle" }, p.label)
+                ))
+              )
+            ),
+            e("div", { className: "stats-footer" },
+              e("div", { className: "stat-item" },
+                e("div", { className: "stat-label" }, period === "daily" ? "Promedio diario" : "Promedio semanal"),
+                e("div", { className: "stat-val" }, `${avgHours} hrs`)
+              ),
+              e("div", { className: "stat-item" },
+                e("div", { className: "stat-label" }, "Día con más estudio"),
+                e("div", { className: "stat-val" }, maxItem ? `${maxItem.label} (${maxItem.hours}h)` : "—")
+              ),
+              e("div", { className: "stat-item" },
+                e("div", { className: "stat-label" }, "Total sesiones"),
+                e("div", { className: "stat-val" }, `${currentData.reduce((s, d) => s + (d.sessions || 0), 0)}`)
+              )
+            )
+          );
+        }
+
+        return e("div", null,
+          // Header with Period Toggle and Summary
+          e("div", { className: "dashboard-header" },
+            e("div", { className: "period-tabs" },
+              e("button", {
+                className: `tab-btn ${period === "daily" ? "active" : ""}`,
+                onClick: () => setPeriod("daily")
+              }, "📅 Diario (7d)"),
+              e("button", {
+                className: `tab-btn ${period === "weekly" ? "active" : ""}`,
+                onClick: () => setPeriod("weekly")
+              }, "📈 Semanal (4s)")
+            ),
+            e("div", { className: "summary-badge" },
+              `Total: ${totalHours.toFixed(1)} hrs`
+            )
+          ),
+
+          // Recharts Area Chart
+          e("div", { className: "chart-container" },
+            e(ResponsiveContainer, { width: "100%", height: "100%" },
+              e(AreaChart, {
+                data: currentData,
+                margin: { top: 10, right: 10, left: -22, bottom: 0 }
+              },
+                e("defs", null,
+                  e("linearGradient", { id: "studyHoursGradient", x1: "0", y1: "0", x2: "0", y2: "1" },
+                    e("stop", { offset: "5%", stopColor: strokeColor, stopOpacity: 0.7 }),
+                    e("stop", { offset: "95%", stopColor: strokeColor, stopOpacity: 0.02 })
+                  )
+                ),
+                e(CartesianGrid, {
+                  strokeDasharray: "3 3",
+                  stroke: gridColor,
+                  vertical: false
+                }),
+                e(XAxis, {
+                  dataKey: "label",
+                  tick: { fill: textColor, fontSize: 11, fontWeight: 500 },
+                  axisLine: false,
+                  tickLine: false
+                }),
+                e(YAxis, {
+                  tick: { fill: textColor, fontSize: 10 },
+                  axisLine: false,
+                  tickLine: false,
+                  tickFormatter: (val) => `${val}h`
+                }),
+                e(Tooltip, {
+                  content: e(CustomTooltipContent)
+                }),
+                e(Area, {
+                  type: "monotone",
+                  dataKey: "hours",
+                  stroke: strokeColor,
+                  strokeWidth: 3,
+                  fillOpacity: 1,
+                  fill: "url(#studyHoursGradient)",
+                  activeDot: { r: 6, stroke: strokeColor, strokeWidth: 2, fill: "#FFFFFF" }
+                })
+              )
+            )
+          ),
+
+          // Bottom Stats Metrics Row
+          e("div", { className: "stats-footer" },
+            e("div", { className: "stat-item" },
+              e("div", { className: "stat-label" }, period === "daily" ? "Promedio diario" : "Promedio semanal"),
+              e("div", { className: "stat-val" }, `${avgHours} hrs`)
+            ),
+            e("div", { className: "stat-item" },
+              e("div", { className: "stat-label" }, "Día con más estudio"),
+              e("div", { className: "stat-val" }, maxItem ? `${maxItem.label} (${maxItem.hours}h)` : "—")
+            ),
+            e("div", { className: "stat-item" },
+              e("div", { className: "stat-label" }, "Total sesiones"),
+              e("div", { className: "stat-val" }, `${currentData.reduce((s, d) => s + (d.sessions || 0), 0)}`)
+            )
+          )
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(e(StudyHoursDashboard));
+    })();
+  </script>
+</body>
+</html>

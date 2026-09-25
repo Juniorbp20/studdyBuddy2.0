@@ -9,8 +9,38 @@
     <string name="save">Guardar</string>
 
     <!-- Main -->
-    <string name="main_title">Compañero de Estudios</string>
+    <string name="main_title">StudyBuddy</string>
     <string name="search_hint">Buscar tareas...</string>
+    <string name="nav_dashboard">Inicio</string>
+    <string name="nav_tasks">Tareas</string>
+    <string name="nav_focus">Pomodoro</string>
+    <string name="nav_calendar">Calendario</string>
+    <string name="nav_statistics">Progreso</string>
+    <string name="dashboard_title">Panel de Estudio</string>
+    <string name="dashboard_greeting">¡Hola de nuevo! ✨</string>
+    <string name="dashboard_greeting_morning">¡Buenos días! ☀️</string>
+    <string name="dashboard_greeting_afternoon">¡Buenas tardes! 🌤️</string>
+    <string name="dashboard_greeting_evening">¡Buenas noches! 🌙</string>
+    <string name="dashboard_section_stats">Estadísticas de hoy</string>
+    <string name="dashboard_trends_title">Tendencia de horas de estudio</string>
+    <string name="dashboard_trends_recharts">Gráficos Recharts</string>
+    <string name="dashboard_stat_study_time">Tiempo de estudio</string>
+    <string name="dashboard_stat_pomodoros">Sesiones Pomodoro</string>
+    <string name="dashboard_stat_completed_tasks">Completadas hoy</string>
+    <string name="dashboard_stat_pending_tasks">Pendientes</string>
+    <string name="dashboard_quick_start_title">Modo Enfoque Pomodoro</string>
+    <string name="dashboard_quick_start_subtitle">Sesión de estudio para maximizar tu concentración</string>
+    <string name="dashboard_quick_start_btn">Iniciar Pomodoro ⏱️</string>
+    <string name="dashboard_quick_start_sessions_today">%1$d sesiones hoy</string>
+    <string name="dashboard_upcoming_tasks">Próximas tareas</string>
+    <string name="dashboard_view_all_tasks">Ver todas</string>
+    <string name="dashboard_no_upcoming_title">¡Todo al día! 🎉</string>
+    <string name="dashboard_no_upcoming_subtitle">No tienes tareas pendientes pendientes en este momento.</string>
+    <string name="dashboard_progress_title">Tu jornada de estudio</string>
+    <string name="dashboard_progress_summary">%1$d de %2$d tareas listas (%3$d%%)</string>
+    <string name="dashboard_quick_pomodoro">Iniciar Pomodoro ⏱️</string>
+    <string name="task_overdue_badge">Vencida</string>
+    <string name="action_create_first_task">Crear primera tarea</string>
     <string name="filter_all_categories">Todas</string>
     <string name="filter_all_priorities">Toda prioridad</string>
     <string name="filter_high">Alta</string>
@@ -26,6 +56,7 @@
     <string name="exact_alarm_action">Configurar</string>
 
     <!-- Menú -->
+    <string name="menu_more">Más opciones</string>
     <string name="menu_statistics">Estadísticas</string>
     <string name="menu_export">Exportar tareas</string>
     <string name="menu_import">Importar tareas</string>
@@ -36,6 +67,36 @@
     <string name="menu_theme_system">Sistema</string>
     <string name="menu_theme_light">Claro</string>
     <string name="menu_theme_dark">Oscuro</string>
+    <string name="modern_menu_header_title">StudyBuddy</string>
+    <string name="modern_menu_header_subtitle">Opciones y herramientas</string>
+    <string name="modern_menu_section_productivity">Productividad y Enfoque</string>
+    <string name="modern_menu_section_backup">Datos y Copias de Seguridad</string>
+    <string name="modern_menu_section_appearance">Apariencia</string>
+    <string name="modern_menu_section_about">Aplicación y Soporte</string>
+    <string name="modern_menu_stats_desc">Métricas de horas y tendencias Recharts</string>
+    <string name="modern_menu_calendar_desc">Vista mensual y entregas programadas</string>
+    <string name="modern_menu_focus_desc">Temporizador Pomodoro con sonido</string>
+    <string name="modern_menu_export_desc">Respaldo completo de tareas (JSON)</string>
+    <string name="modern_menu_export_csv_desc">Compatible con Excel y Google Sheets</string>
+    <string name="modern_menu_import_desc">Restaurar tareas desde un archivo JSON</string>
+    <string name="modern_menu_theme_desc">Selecciona el modo visual preferido</string>
+    <string name="modern_menu_update_desc">Verificar si hay una versión más reciente</string>
+    <string name="modern_menu_about_desc">Información de la versión y créditos</string>
+    <string name="modern_menu_goal_desc">Meta diaria de estudio (%1$s h)</string>
+    <string name="modern_menu_section_sync">Sincronización y Red</string>
+    <string name="sync_title">Sincronización</string>
+    <string name="sync_status_online">En línea · Sincronizado</string>
+    <string name="sync_status_offline">Modo sin conexión · Guardado local</string>
+    <string name="sync_status_syncing">Sincronizando datos…</string>
+    <string name="sync_now">Sincronizar ahora</string>
+    <string name="sync_pending_count">%1$d cambios pendientes de sincronizar</string>
+    <string name="sync_last_time">Última sincronización: %1$s</string>
+    <string name="sync_just_now">Hace un momento</string>
+    <string name="sync_never">Nunca</string>
+    <string name="sync_completed_toast">Sincronización completada (%1$d elementos)</string>
+    <string name="sync_network_restored">Conexión restablecida. Sincronizando datos…</string>
+    <string name="sync_offline_mode_banner">Modo sin conexión · Tareas y temporizador protegidos localmente</string>
+    <string name="sync_offline_detail">Tus tareas, cambios y sesiones pomodoro se guardan de forma local en tu dispositivo y se sincronizarán al recuperar conexión.</string>
 
     <!-- Actualizaciones -->
     <string name="menu_check_update">Buscar actualizaciones</string>
@@ -52,7 +113,7 @@
     <string name="update_install_permission_message">Para instalar la actualización, permite a Compañero de Estudios instalar aplicaciones.</string>
     <string name="update_install_permission_action">Abrir ajustes</string>
     <string name="menu_about">Acerca de</string>
-    <string name="about_message">Compañero de Estudios %1$s\nGestor de tareas, hábitos y pomodoro.\nhttps://github.com/Juniorbp20/StudyBuddy</string>
+    <string name="about_message">Compañero de Estudios %1$s\nGestor de tareas, hábitos y pomodoro.\nCreado por Gustavo Junior Bonifacio</string>
     <string name="ok">OK</string>
 
     <!-- Add/Edit task -->
@@ -94,6 +155,7 @@
     <string name="category_name_hint">Nombre de la categoría</string>
     <string name="category_name_required">Escribe el nombre de la categoría</string>
     <string name="category_icon_label">Elige un icono</string>
+    <string name="category_color_label">Elige un color</string>
     <string name="delete_category_title">Eliminar categoría</string>
     <string name="delete_category_message">Se eliminará la categoría "%1$s" y sus tareas pasarán a "General". ¿Continuar?</string>
 
@@ -130,20 +192,48 @@
     <string name="no_tasks_day">Sin tareas este día</string>
 
     <!-- Enfoque -->
-    <string name="focus_title">Modo enfoque</string>
+    <string name="focus_title">Modo Pomodoro</string>
     <string name="focus_mode">Enfoque</string>
     <string name="break_mode">Descanso</string>
+    <string name="break_short_mode">Descanso Corto</string>
+    <string name="break_long_mode">Descanso Largo</string>
+    <string name="focus_cycle_indicator">Sesión %1$d de %2$d</string>
     <string name="focus_start">Comenzar</string>
     <string name="focus_pause">Pausar</string>
     <string name="focus_resume">Continuar</string>
     <string name="focus_reset">Reiniciar</string>
+    <string name="focus_skip">Saltar intervalo</string>
+    <string name="focus_settings">Configurar intervalos</string>
+    <string name="focus_preset_classic">25/5 Clásico</string>
+    <string name="focus_preset_deep">50/10 Profundo</string>
+    <string name="focus_preset_sprint">15/3 Rápido</string>
+    <string name="focus_preset_custom">Personalizado</string>
+    <string name="focus_config_title">Intervalos Pomodoro</string>
+    <string name="focus_work_label">Tiempo de enfoque (min)</string>
+    <string name="focus_short_break_label">Descanso corto (min)</string>
+    <string name="focus_long_break_label">Descanso largo (min)</string>
+    <string name="focus_cycles_label">Sesiones antes del descanso largo</string>
     <string name="focus_sessions_label">Sesiones hoy: %1$d · Total: %2$d</string>
     <string name="focus_completed_toast">¡Sesión completada! Tómate un descanso</string>
     <string name="focus_break_toast">Descanso terminado. ¡A concentrarse!</string>
-    <string name="focus_time_hint">Toca el tiempo para configurarlo</string>
+    <string name="focus_time_hint">Toca el tiempo o usa los ajustes para configurar</string>
     <string name="focus_work_duration_title">Duración de Enfoque (minutos)</string>
     <string name="focus_break_duration_title">Duración de Descanso (minutos)</string>
     <string name="focus_pause_to_change">Pausa el temporizador para cambiar el tiempo</string>
+    <string name="focus_sound_alert">Alerta sonora</string>
+    <string name="focus_sound_enabled">Sonido de alerta activado</string>
+    <string name="focus_sound_disabled">Sonido de alerta desactivado</string>
+    <string name="focus_sound_preview">Probar sonido</string>
+    <string name="focus_sound_subtitle">Campana suave no intrusiva al terminar cada intervalo</string>
+    <string name="notification_channel_focus">Temporizador Pomodoro</string>
+    <string name="notification_channel_focus_desc">Notificaciones al finalizar sesiones de estudio y descansos</string>
+    <string name="notification_focus_done_title">¡Sesión de enfoque completada! 🎯</string>
+    <string name="notification_focus_done_body">¡Excelente trabajo! Tómate un descanso de %1$d minutos.</string>
+    <string name="notification_break_done_title">¡Descanso terminado! ⏰</string>
+    <string name="notification_break_done_body">¿Listo para retomar tu sesión de estudio?</string>
+    <string name="notification_focus_running_title">Temporizador Pomodoro</string>
+    <string name="notification_focus_running_body">%1$s restante · %2$s</string>
+    <string name="action_open_focus">Abrir temporizador</string>
 
     <!-- Export/Import -->
     <string name="export_success">Tareas exportadas (%1$d)</string>
@@ -165,6 +255,22 @@
     <string name="notification_channel_reminders_desc">Notificaciones de recordatorio de tareas</string>
     <string name="notification_channel_overdue">Tareas vencidas</string>
     <string name="notification_channel_overdue_desc">Resumen diario de tareas vencidas</string>
+    <string name="notification_channel_goals">Metas de estudio diarias</string>
+    <string name="notification_channel_goals_desc">Notificaciones para recordarte cumplir tu meta de estudio diario</string>
+    <string name="notification_goal_title">🎯 Meta de estudio diaria</string>
+    <string name="notification_goal_body_progress">Llevas %1$d min de tu meta de %2$s h (%3$d%%). ¡Faltan %4$s para alcanzarla!</string>
+    <string name="notification_goal_body_not_started">Aún no has comenzado tu meta de %1$s h de hoy. ¡Inicia un Pomodoro para avanzar!</string>
+    <string name="notification_goal_action_start">Iniciar Pomodoro ⏱️</string>
+    <string name="daily_goal_card_title">Objetivo diario de estudio</string>
+    <string name="daily_goal_card_unmet_title">¡Aún no alcanzas tu meta de hoy!</string>
+    <string name="daily_goal_card_met_title">¡Meta diaria cumplida! 🎉</string>
+    <string name="daily_goal_card_met_desc">Has completado %1$s de estudio hoy, superando tu meta de %2$s h. ¡Excelente trabajo!</string>
+    <string name="daily_goal_card_progress">%1$s de %2$s h (%3$d%%) · Faltan %4$s</string>
+    <string name="daily_goal_dialog_title">Configurar meta diaria</string>
+    <string name="daily_goal_dialog_desc">¿Cuántas horas te gustaría estudiar cada día?</string>
+    <string name="daily_goal_saved">Meta diaria guardada: %1$s h</string>
+    <string name="daily_goal_toast_reminded">🎯 Recordatorio: Aún no has alcanzado tu meta diaria de estudio.</string>
+
 
     <!-- Calendario -->
     <string-array name="day_names_short">

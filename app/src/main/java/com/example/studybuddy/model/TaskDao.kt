@@ -26,6 +26,9 @@ interface TaskDao {
     @Query("SELECT * FROM tasks WHERE is_completed = 0 ORDER BY due_date ASC")
     fun getPendingTasks(): Flow<List<Task>>
 
+    @Query("SELECT * FROM tasks WHERE is_completed = 0 ORDER BY due_date ASC LIMIT :limit")
+    fun getUpcomingTasks(limit: Int): Flow<List<Task>>
+
     @Query("SELECT * FROM tasks WHERE is_completed = 1 ORDER BY due_date DESC")
     fun getCompletedTasks(): Flow<List<Task>>
 

@@ -9,8 +9,38 @@
     <string name="save">Save</string>
 
     <!-- Main -->
-    <string name="main_title">Study Buddy</string>
+    <string name="main_title">StudyBuddy</string>
     <string name="search_hint">Search tasks...</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_focus">Pomodoro</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_statistics">Progress</string>
+    <string name="dashboard_title">Study Dashboard</string>
+    <string name="dashboard_greeting">Welcome back! ✨</string>
+    <string name="dashboard_greeting_morning">Good morning! ☀️</string>
+    <string name="dashboard_greeting_afternoon">Good afternoon! 🌤️</string>
+    <string name="dashboard_greeting_evening">Good evening! 🌙</string>
+    <string name="dashboard_section_stats">Today\'s Study Stats</string>
+    <string name="dashboard_trends_title">Study Hours Trends</string>
+    <string name="dashboard_trends_recharts">Recharts Visuals</string>
+    <string name="dashboard_stat_study_time">Study time</string>
+    <string name="dashboard_stat_pomodoros">Pomodoro sessions</string>
+    <string name="dashboard_stat_completed_tasks">Completed today</string>
+    <string name="dashboard_stat_pending_tasks">Pending</string>
+    <string name="dashboard_quick_start_title">Pomodoro Focus Mode</string>
+    <string name="dashboard_quick_start_subtitle">Deep study session to boost your concentration</string>
+    <string name="dashboard_quick_start_btn">Start Pomodoro ⏱️</string>
+    <string name="dashboard_quick_start_sessions_today">%1$d sessions today</string>
+    <string name="dashboard_upcoming_tasks">Upcoming tasks</string>
+    <string name="dashboard_view_all_tasks">View all</string>
+    <string name="dashboard_no_upcoming_title">All caught up! 🎉</string>
+    <string name="dashboard_no_upcoming_subtitle">You have no pending tasks right now.</string>
+    <string name="dashboard_progress_title">Your study journey</string>
+    <string name="dashboard_progress_summary">%1$d of %2$d tasks completed (%3$d%%)</string>
+    <string name="dashboard_quick_pomodoro">Start Pomodoro ⏱️</string>
+    <string name="task_overdue_badge">Overdue</string>
+    <string name="action_create_first_task">Create first task</string>
     <string name="filter_all_categories">All</string>
     <string name="filter_all_priorities">Any priority</string>
     <string name="filter_high">High</string>
@@ -26,6 +56,7 @@
     <string name="exact_alarm_action">Settings</string>
 
     <!-- Menu -->
+    <string name="menu_more">More options</string>
     <string name="menu_statistics">Statistics</string>
     <string name="menu_export">Export tasks</string>
     <string name="menu_import">Import tasks</string>
@@ -36,6 +67,36 @@
     <string name="menu_theme_system">System</string>
     <string name="menu_theme_light">Light</string>
     <string name="menu_theme_dark">Dark</string>
+    <string name="modern_menu_header_title">StudyBuddy</string>
+    <string name="modern_menu_header_subtitle">Options &amp; tools</string>
+    <string name="modern_menu_section_productivity">Productivity &amp; Focus</string>
+    <string name="modern_menu_section_backup">Data &amp; Backup</string>
+    <string name="modern_menu_section_appearance">Appearance</string>
+    <string name="modern_menu_section_about">App &amp; Support</string>
+    <string name="modern_menu_stats_desc">Study hours &amp; Recharts analytics</string>
+    <string name="modern_menu_calendar_desc">Monthly view &amp; scheduled deadlines</string>
+    <string name="modern_menu_focus_desc">Pomodoro focus timer with alert chimes</string>
+    <string name="modern_menu_export_desc">Complete tasks &amp; categories backup (JSON)</string>
+    <string name="modern_menu_export_csv_desc">Spreadsheet ready for Excel &amp; Google Sheets</string>
+    <string name="modern_menu_import_desc">Restore tasks from a backup JSON file</string>
+    <string name="modern_menu_theme_desc">Choose your preferred visual theme</string>
+    <string name="modern_menu_update_desc">Check if a newer version is available</string>
+    <string name="modern_menu_about_desc">Version info, license &amp; credits</string>
+    <string name="modern_menu_goal_desc">Daily study goal (%1$s h)</string>
+    <string name="modern_menu_section_sync">Sync &amp; Network</string>
+    <string name="sync_title">Synchronization</string>
+    <string name="sync_status_online">Online · Synced</string>
+    <string name="sync_status_offline">Offline mode · Saved locally</string>
+    <string name="sync_status_syncing">Syncing data…</string>
+    <string name="sync_now">Sync now</string>
+    <string name="sync_pending_count">%1$d pending changes to sync</string>
+    <string name="sync_last_time">Last synced: %1$s</string>
+    <string name="sync_just_now">Just now</string>
+    <string name="sync_never">Never</string>
+    <string name="sync_completed_toast">Sync completed (%1$d items)</string>
+    <string name="sync_network_restored">Connection restored. Syncing data…</string>
+    <string name="sync_offline_mode_banner">Offline mode · Tasks &amp; timer protected locally</string>
+    <string name="sync_offline_detail">Your tasks, updates, and pomodoro sessions are stored locally on your device and will sync as soon as connectivity returns.</string>
 
     <!-- Updates -->
     <string name="menu_check_update">Check for updates</string>
@@ -52,7 +113,7 @@
     <string name="update_install_permission_message">To install the update, allow Study Buddy to install applications.</string>
     <string name="update_install_permission_action">Open settings</string>
     <string name="menu_about">About</string>
-    <string name="about_message">Study Buddy %1$s\nTask, habit and pomodoro manager.\nhttps://github.com/Juniorbp20/StudyBuddy</string>
+    <string name="about_message">Study Buddy %1$s\nTask, habit and pomodoro manager.\nCreated by Gustavo Junior Bonifacio</string>
     <string name="ok">OK</string>
 
     <!-- Add/Edit task -->
@@ -94,6 +155,7 @@
     <string name="category_name_hint">Category name</string>
     <string name="category_name_required">Enter the category name</string>
     <string name="category_icon_label">Choose an icon</string>
+    <string name="category_color_label">Choose a color</string>
     <string name="delete_category_title">Delete category</string>
     <string name="delete_category_message">The category "%1$s" will be deleted and its tasks will move to "General". Continue?</string>
 
@@ -130,20 +192,48 @@
     <string name="no_tasks_day">No tasks this day</string>
 
     <!-- Focus -->
-    <string name="focus_title">Focus mode</string>
+    <string name="focus_title">Pomodoro Focus</string>
     <string name="focus_mode">Focus</string>
     <string name="break_mode">Break</string>
+    <string name="break_short_mode">Short Break</string>
+    <string name="break_long_mode">Long Break</string>
+    <string name="focus_cycle_indicator">Session %1$d of %2$d</string>
     <string name="focus_start">Start</string>
     <string name="focus_pause">Pause</string>
     <string name="focus_resume">Resume</string>
     <string name="focus_reset">Reset</string>
+    <string name="focus_skip">Skip interval</string>
+    <string name="focus_settings">Configure intervals</string>
+    <string name="focus_preset_classic">25/5 Classic</string>
+    <string name="focus_preset_deep">50/10 Deep</string>
+    <string name="focus_preset_sprint">15/3 Sprint</string>
+    <string name="focus_preset_custom">Custom</string>
+    <string name="focus_config_title">Pomodoro Intervals</string>
+    <string name="focus_work_label">Focus duration (min)</string>
+    <string name="focus_short_break_label">Short break (min)</string>
+    <string name="focus_long_break_label">Long break (min)</string>
+    <string name="focus_cycles_label">Sessions before long break</string>
     <string name="focus_sessions_label">Sessions today: %1$d · Total: %2$d</string>
     <string name="focus_completed_toast">Session completed! Take a break</string>
     <string name="focus_break_toast">Break over. Focus time!</string>
-    <string name="focus_time_hint">Tap the time to set it</string>
+    <string name="focus_time_hint">Tap the time or use settings to configure</string>
     <string name="focus_work_duration_title">Focus duration (minutes)</string>
     <string name="focus_break_duration_title">Break duration (minutes)</string>
     <string name="focus_pause_to_change">Pause the timer to change the time</string>
+    <string name="focus_sound_alert">Sound alert</string>
+    <string name="focus_sound_enabled">Sound alert enabled</string>
+    <string name="focus_sound_disabled">Sound alert muted</string>
+    <string name="focus_sound_preview">Preview sound</string>
+    <string name="focus_sound_subtitle">Subtle, non-intrusive chime when each interval ends</string>
+    <string name="notification_channel_focus">Pomodoro Timer</string>
+    <string name="notification_channel_focus_desc">Notifications for study session and break completions</string>
+    <string name="notification_focus_done_title">Focus session completed! 🎯</string>
+    <string name="notification_focus_done_body">Great work! Take a %1$d-minute break.</string>
+    <string name="notification_break_done_title">Break is over! ⏰</string>
+    <string name="notification_break_done_body">Ready to get back to your study session?</string>
+    <string name="notification_focus_running_title">Pomodoro Timer</string>
+    <string name="notification_focus_running_body">%1$s remaining · %2$s</string>
+    <string name="action_open_focus">Open timer</string>
 
     <!-- Export/Import -->
     <string name="export_success">Exported %1$d tasks</string>
@@ -165,6 +255,22 @@
     <string name="notification_channel_reminders_desc">Task reminder notifications</string>
     <string name="notification_channel_overdue">Overdue tasks</string>
     <string name="notification_channel_overdue_desc">Daily summary of overdue tasks</string>
+    <string name="notification_channel_goals">Daily Study Goals</string>
+    <string name="notification_channel_goals_desc">Reminders to achieve your daily study target hours</string>
+    <string name="notification_goal_title">🎯 Daily Study Goal</string>
+    <string name="notification_goal_body_progress">You\'ve studied %1$d min of your %2$s h goal (%3$d%%). %4$s remaining to reach today\'s target!</string>
+    <string name="notification_goal_body_not_started">You haven\'t started today\'s %1$s h study goal yet. Start a Pomodoro to make progress!</string>
+    <string name="notification_goal_action_start">Start Pomodoro ⏱️</string>
+    <string name="daily_goal_card_title">Daily Study Goal</string>
+    <string name="daily_goal_card_unmet_title">Daily goal not reached yet!</string>
+    <string name="daily_goal_card_met_title">Daily Goal Achieved! 🎉</string>
+    <string name="daily_goal_card_met_desc">You completed %1$s of study today, hitting your %2$s h target. Great work!</string>
+    <string name="daily_goal_card_progress">%1$s of %2$s h (%3$d%%) · %4$s remaining</string>
+    <string name="daily_goal_dialog_title">Set Daily Study Goal</string>
+    <string name="daily_goal_dialog_desc">How many hours would you like to study each day?</string>
+    <string name="daily_goal_saved">Daily goal saved: %1$s h</string>
+    <string name="daily_goal_toast_reminded">🎯 Reminder: You haven\'t met your daily study goal yet.</string>
+
 
     <!-- Calendar -->
     <string-array name="day_names_short">

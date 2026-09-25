@@ -49,6 +49,7 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
     }.distinctUntilChanged()
 
     val allTasks: LiveData<List<Task>> = repository.allTasks.asLiveData()
+    val upcomingTasks: LiveData<List<Task>> = repository.upcomingTasks(5).asLiveData()
     val totalCount: LiveData<Int> = repository.totalCount.asLiveData()
     val completedCount: LiveData<Int> = repository.completedCount.asLiveData()
     val pendingCount: LiveData<Int> = repository.pendingCount.asLiveData()

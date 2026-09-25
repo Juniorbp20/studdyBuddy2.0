@@ -21,6 +21,9 @@ object FocusSessionStore {
             .putInt(KEY_TOTAL, prefs.getInt(KEY_TOTAL, 0) + 1)
             .putInt(KEY_DAILY_PREFIX + today, prefs.getInt(KEY_DAILY_PREFIX + today, 0) + 1)
             .apply()
+
+        // Track in SyncManager for local offline synchronization
+        SyncManager.getInstance(context).enqueuePomodoroSession(context, getWorkMinutes(context))
     }
 
     fun totalSessions(context: Context): Int =
@@ -29,5 +32,14 @@ object FocusSessionStore {
     fun sessionsToday(context: Context): Int {
         val today = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
         return prefs(context).getInt(KEY_DAILY_PREFIX + today, 0)
+    }
+
+    fun getWorkMinutes(context: Context): Int {
+        val focusPrefs = context.getSharedPreferences("focus_prefs", Context.MODE_PRIVATE)
+        return focusPrefs.getInt("work_minutes", 25)
+    }
+
+    fun focusMinutesToday(context: Context): Int {
+        return sessionsToday(context) * getWorkMinutes(context)
     }
 }

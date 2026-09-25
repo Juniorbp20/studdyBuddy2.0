@@ -2,40 +2,55 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_modern_menu"
+        android:icon="@drawable/ic_more_vert"
+        android:title="@string/menu_more"
+        app:iconTint="?attr/colorControlNormal"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_statistics"
         android:title="@string/menu_statistics"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_calendar"
         android:title="@string/menu_calendar"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_focus"
         android:title="@string/menu_focus"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_export"
         android:title="@string/menu_export"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_export_csv"
         android:title="@string/menu_export_csv"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_import"
         android:title="@string/menu_import"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_check_update"
         android:title="@string/menu_check_update"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_about"
         android:title="@string/menu_about"
+        android:visible="false"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_theme"
-        android:title="@string/menu_theme">
+        android:title="@string/menu_theme"
+        android:visible="false">
         <menu>
             <item
                 android:id="@+id/action_theme_system"
